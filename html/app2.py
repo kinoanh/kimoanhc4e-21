@@ -19,10 +19,12 @@ def register():
         i= form['id']
         p= form['pass']
     
+        if '@' not in e or '.' not in e:
+            return 'Invalid Email adress'
         if len(p) < 6:
             return 'Password must be longer than 6 chars'
 
-        new_user = User(name=a, email=b, user_name=c, password=d)
+        new_user = User(name=n, email=e, id=c, pass=p)
         new_user.save()
         return 'OK'
 
